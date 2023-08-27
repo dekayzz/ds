@@ -1,0 +1,17 @@
+---
+title: "Dekayz"
+image: images/gojo.png
+about:
+  template: jolla
+  image-width: 15em
+  image-shape: round
+  links:
+    - icon: x
+      text: My X
+      href: https://twitter.com/dekayz_
+    - icon: envelope
+      text: Contact me
+      href: mailto:derikayz@gmail.com
+---
+
+Sharing is caring, yoww!!
