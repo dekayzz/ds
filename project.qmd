@@ -1,5 +1,5 @@
 ---
-title: "Tidy Tuesday visualizations"
+title: "Tidy Tuesday viz"
 listing:
   contents: project
   sort: "date desc"
