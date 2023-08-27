@@ -25,9 +25,6 @@ website:
       - icon: x
         href: https://twitter.com/dekayz_
         aria-label: Quarto X
-      - icon: linkedin
-        href: https://linkedin.com/
-        aria-label: Quarto LinkedIn
         
   search: 
     location: navbar
