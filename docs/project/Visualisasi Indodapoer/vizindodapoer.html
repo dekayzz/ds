@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Deri Siswara">
+<meta name="dcterms.date" content="2023-08-28">
+<title>DS - Eksplorasi Data Ekonomi dan Kebijakan di Nusa Tenggara Barat - Data INDODAPOER</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/ds.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">DS</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html">Projects</a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/dekayz_"><i class="bi bi-x" role="img" aria-label="Quarto X">
+</i> 
+ </a>
+  </li>  
+</ul>
+<div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Eksplorasi Data Ekonomi dan Kebijakan di Nusa Tenggara Barat - Data INDODAPOER</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">eksplorasi</div>
+                <div class="quarto-category">visualization</div>
+                <div class="quarto-category">indodapoer</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Deri Siswara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 28, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Nusa Tenggara Barat (NTB) ialah sebuah provinsi di Indonesia yang berada di bagian tengah Kepulauan Nusa Tenggara di antara provinsi Bali di sebelah barat dan provinsi Nusa Tenggara Timur di sebelah Timur. Ibu kota provinsi ini berada di kota Mataram. Nusa Tenggara Barat memiliki 8 Kabupaten dan 2 Kota, termasuk kota Mataram. Pada tahun 2020, penduduk Nusa Tenggara Barat berjumlah 5.320.092 jiwa, dengan kepadatan 264 jiwa/km2.</p>
+<p>Dalam menunjang penelitian terkait pemetaaan sosial ekonomi di Nusa Tenggara Barat (NTB), publikasi ini memuat kondisi eksisting makroekonomi di NTB. Ekolorasi ini menggunakan data INDODAPOER. List data yang digunakan yakni:</p>
+<ul>
+<li>Pengeluaran Daerah untuk Pariwisata dan Kebudayaan</li>
+<li>Pendapatan Asli daerah</li>
+<li>Total Populasi</li>
+<li>Gini Index dan Poverty Rate</li>
+<li>Labor rate dan Unemployment Rate</li>
+</ul>
+<section id="persiapan-data" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="persiapan-data">
+<span class="header-section-number">1</span> Persiapan Data</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="va">datadapoer</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"datadapoer.xlsx"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">datadapoer</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  `Provinces Name` `Provinces Code` `Series Name`  `Series Code` `2011 [YR2011]`
+  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;          
+1 Bali, Prop.      ID.BA            Agriculture f… FC.XPD.AGR.CR 32678063183    
+2 Bali, Prop.      ID.BA            Average Natio… SE.NEXM.SCR.… ..             
+3 Bali, Prop.      ID.BA            Average Natio… SE.NEXM.SCR.… ..             
+4 Bali, Prop.      ID.BA            Average Natio… SE.NEXM.SCR.… ..             
+5 Bali, Prop.      ID.BA            Birth attende… SH.STA.BRTC.… 96.457         
+6 Bali, Prop.      ID.BA            BPK Audit Rep… BPK.AUD.SUBN  2              
+# ℹ 9 more variables: `2012 [YR2012]` &lt;chr&gt;, `2013 [YR2013]` &lt;chr&gt;,
+#   `2014 [YR2014]` &lt;chr&gt;, `2015 [YR2015]` &lt;chr&gt;, `2016 [YR2016]` &lt;chr&gt;,
+#   `2017 [YR2017]` &lt;chr&gt;, `2018 [YR2018]` &lt;chr&gt;, `2019 [YR2019]` &lt;chr&gt;,
+#   `2020 [YR2020]` &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">datadapoer</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">datadapoer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/make.names.html">make.names</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">datadapoer</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  Provinces.Name Provinces.Code Series.Name           Series.Code X2011..YR2011.
+  &lt;chr&gt;          &lt;chr&gt;          &lt;chr&gt;                 &lt;chr&gt;       &lt;chr&gt;         
+1 Bali, Prop.    ID.BA          Agriculture function… FC.XPD.AGR… 32678063183   
+2 Bali, Prop.    ID.BA          Average National Exa… SE.NEXM.SC… ..            
+3 Bali, Prop.    ID.BA          Average National Exa… SE.NEXM.SC… ..            
+4 Bali, Prop.    ID.BA          Average National Exa… SE.NEXM.SC… ..            
+5 Bali, Prop.    ID.BA          Birth attended by Sk… SH.STA.BRT… 96.457        
+6 Bali, Prop.    ID.BA          BPK Audit Report on … BPK.AUD.SU… 2             
+# ℹ 9 more variables: X2012..YR2012. &lt;chr&gt;, X2013..YR2013. &lt;chr&gt;,
+#   X2014..YR2014. &lt;chr&gt;, X2015..YR2015. &lt;chr&gt;, X2016..YR2016. &lt;chr&gt;,
+#   X2017..YR2017. &lt;chr&gt;, X2018..YR2018. &lt;chr&gt;, X2019..YR2019. &lt;chr&gt;,
+#   X2020..YR2020. &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datadapoer2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"datadapoer2.xlsx"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">datadapoer2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  `Provinces Name` `Provinces Code` `Series Name`  `Series Code` `2011 [YR2011]`
+  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;          
+1 Bima, Kab.       ID.NB.BI         Tourism and c… FC.XPD.TOUR.… 3549916175     
+2 Bima, Kab.       ID.NB.BI         Total Own Sou… REV.OSRV.CR   35641917117    
+3 Bima, Kab.       ID.NB.BI         Total Natural… REV.NRRV.SHR… 7470619804     
+4 Bima, Kab.       ID.NB.BI         Total Natural… NRRV.SHR.FSH… ..             
+5 Bima, Kab.       ID.NB.BI         Total Natural… NRRV.SHR.FRS… ..             
+6 Bima, Kab.       ID.NB.BI         Total Natural… NRRV.SHR.GAS… ..             
+# ℹ 9 more variables: `2012 [YR2012]` &lt;chr&gt;, `2013 [YR2013]` &lt;chr&gt;,
+#   `2014 [YR2014]` &lt;chr&gt;, `2015 [YR2015]` &lt;chr&gt;, `2016 [YR2016]` &lt;chr&gt;,
+#   `2017 [YR2017]` &lt;chr&gt;, `2018 [YR2018]` &lt;chr&gt;, `2019 [YR2019]` &lt;chr&gt;,
+#   `2020 [YR2020]` &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">datadapoer2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">datadapoer2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/make.names.html">make.names</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">datadapoer2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  Provinces.Name Provinces.Code Series.Name           Series.Code X2011..YR2011.
+  &lt;chr&gt;          &lt;chr&gt;          &lt;chr&gt;                 &lt;chr&gt;       &lt;chr&gt;         
+1 Bima, Kab.     ID.NB.BI       Tourism and culture … FC.XPD.TOU… 3549916175    
+2 Bima, Kab.     ID.NB.BI       Total Own Source Rev… REV.OSRV.CR 35641917117   
+3 Bima, Kab.     ID.NB.BI       Total Natural Resour… REV.NRRV.S… 7470619804    
+4 Bima, Kab.     ID.NB.BI       Total Natural Resour… NRRV.SHR.F… ..            
+5 Bima, Kab.     ID.NB.BI       Total Natural Resour… NRRV.SHR.F… ..            
+6 Bima, Kab.     ID.NB.BI       Total Natural Resour… NRRV.SHR.G… ..            
+# ℹ 9 more variables: X2012..YR2012. &lt;chr&gt;, X2013..YR2013. &lt;chr&gt;,
+#   X2014..YR2014. &lt;chr&gt;, X2015..YR2015. &lt;chr&gt;, X2016..YR2016. &lt;chr&gt;,
+#   X2017..YR2017. &lt;chr&gt;, X2018..YR2018. &lt;chr&gt;, X2019..YR2019. &lt;chr&gt;,
+#   X2020..YR2020. &lt;chr&gt;</code></pre>
+</div>
+</div>
+<section id="pengeluaran-daerah-untuk-pariwisata" class="level3" data-number="1.1"><h3 data-number="1.1" class="anchored" data-anchor-id="pengeluaran-daerah-untuk-pariwisata">
+<span class="header-section-number">1.1</span> 1. Pengeluaran Daerah untuk Pariwisata</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tourism</span> <span class="op">&lt;-</span> <span class="va">datadapoer</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Tourism and culture function expenditure (in IDR)"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">tourism</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">tourism</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">tourism</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">tourism</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">tourism</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">target</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bali, Prop."</span>,<span class="st">"DI Yogyakarta, Prop."</span>, <span class="st">'Jawa Timur, Prop.'</span>, <span class="st">"Nusa Tenggara Timur, Prop."</span>,<span class="st">"Nusa Tenggara Barat, Prop."</span><span class="op">)</span></span>
+<span><span class="va">tourism</span> <span class="op">&lt;-</span> <span class="va">tourism</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Provinces</span><span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">target</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="va">tourism</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Provinces Year        value
+1:                Bali, Prop. 2020  58659967293
+2:       DI Yogyakarta, Prop. 2020 313198463331
+3:          Jawa Timur, Prop. 2020  90073235455
+4: Nusa Tenggara Barat, Prop. 2020  25107197016
+5: Nusa Tenggara Timur, Prop. 2020  25083710468</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tourism2</span> <span class="op">&lt;-</span> <span class="va">datadapoer</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Tourism and culture function expenditure (in IDR)"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">tourism2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">tourism2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">tourism2</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">tourism2</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">tourism2</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">target</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bali, Prop."</span>,<span class="st">"DI Yogyakarta, Prop."</span>, <span class="st">'Jawa Timur, Prop.'</span>,<span class="st">"Nusa Tenggara Barat, Prop."</span><span class="op">)</span></span>
+<span><span class="va">target2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="va">tourism2</span> <span class="op">&lt;-</span> <span class="va">tourism2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Provinces</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">target</span><span class="op">)</span></span>
+<span><span class="va">tourism2</span><span class="op">$</span><span class="va">Provinces</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bali"</span>,<span class="st">"DI Yogyakarta"</span>,<span class="st">"Jawa Timur"</span>,<span class="st">"Nusa Tenggara Barat"</span><span class="op">)</span>,<span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ntb</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Tourism and culture function expenditure (in IDR)"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ntb</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">ntb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">ntb</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">ntb</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">ntb</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">ntb</span><span class="op">$</span><span class="va">Provinces</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+         Bima, Kab.          Bima, Kota         Dompu, Kab.  Lombok Barat, Kab. 
+                 10                  10                  10                  10 
+Lombok Tengah, Kab.  Lombok Timur, Kab.  Lombok Utara, Kab.       Mataram, Kota 
+                 10                  10                  10                  10 
+Sumbawa Barat, Kab.       Sumbawa, Kab. 
+                 10                  10 </code></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">target</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bima, Kab."</span>  ,              <span class="st">" Bima, Kota"</span>   ,           <span class="st">"Dompu, Kab."</span>    ,     <span class="st">'Lombok Barat, Kab.'</span> ,       <span class="st">'Lombok Tengah, Kab.'</span>  ,       <span class="st">'Lombok Timur, Kab.'</span>  ,       <span class="st">'Lombok Utara, Kab.'</span> ,             <span class="st">'Mataram, Kota'</span>,</span>
+<span>      <span class="st">' Sumbawa Barat, Kab.'</span>  ,            <span class="st">'Sumbawa, Kab.'</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="va">ntb</span> <span class="op">&lt;-</span> <span class="va">ntb</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Provinces</span><span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">target</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="va">ntb</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Provinces Year       value
+1:          Bima, Kab. 2020  9262319023
+2:         Dompu, Kab. 2020  4141634265
+3:  Lombok Barat, Kab. 2020 19250550732
+4: Lombok Tengah, Kab. 2020 13014977321
+5:  Lombok Timur, Kab. 2020  9398937078
+6:  Lombok Utara, Kab. 2020 24777372338
+7:       Mataram, Kota 2020  8768332874
+8:       Sumbawa, Kab. 2020  7450859535</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
+<span><span class="va">myPalette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">4</span>, <span class="st">"Set2"</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html">pie</a></span><span class="op">(</span><span class="va">tourism</span><span class="op">$</span><span class="va">value</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bali"</span>,<span class="st">"DI Yogyakarta"</span>, <span class="st">'Jawa Timur'</span>, <span class="st">"Nusa Tenggara Barat"</span>, <span class="st">"Nusa Tenggara Timur"</span><span class="op">)</span>, border<span class="op">=</span><span class="st">"white"</span>, col<span class="op">=</span><span class="va">myPalette</span>, </span>
+<span>    main<span class="op">=</span><span class="st">"Pengeluaran Daerah untuk Pariwisata \ndan Kebudayaan (Share)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>NTB merupakan provinsi di Indonesia yang memiliki kekayaan beragam wisata pulau, salah satu yang terkenal adalah Pulau Lombok. Pulau Lombok merupakan salah satu Daerah Tujuan wisata (DTW) di Indonesia, yang merupakan bagian dari propinsi NTB. Potensi pariwisata yang dimiliki oleh Pulau Lombok merupakan salah satu usaha dalam rangka menggali sumber-sumber pendapatan daerah yang bertujuan untuk meningkatkan kesejahteraan masyarakat.</p>
+<p>Keseriusan pemerintah daerah untuk sektor pariwisata dapat tercermin pada indikator fiskal <em>Pengeluaran Daerah untuk Pariwisata dan Kebudayaan</em>. Pie chart di atas menunjukkan perbandingan Pengeluaran Daerah untuk Pariwisata dan Kebudayaan di NTB dengan berbagai daerah yang secara populasi dan karakteristik cukup dekat.</p>
+<p>Dapat terlihat bahwa pengeluaran daerah untuk pariwisata dan kebudayaan di berbagai daerah terdapat perbedaan yang signifikan. Daerah yang memiliki pengeluaran daerah untuk pariwisata dan kebudayaan yang terbesar adalah provinsi di Yogyakarta hal ini karena di DI Yogyakarta terdapat Candi Borobudur sebagai warisan budaya Indonesia yang dalam perawatannya membutuhkan anggaran yang cukup besar. Jika dibandingkan dengan Bali dan Nusa Tenggara Timur,pengeluaran untuk pariwisata dan kebudayaan NTB masih rendah dibandingkan dengan Bali. NTB secara pariwisata masih kalah dibandingkan dengan Bali. NTB masih mengandalkan sektot pertanian sebagai sumber pendapatan utama daerah.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/writexl/">writexl</a></span><span class="op">)</span></span>
+<span><span class="va">tourism2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">'tourism2.xlsx'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/hrbrmstr/hrbrthemes">hrbrthemes</a></span><span class="op">)</span></span>
+<span><span class="va">tourism2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Year</span>, y<span class="op">=</span><span class="va">value</span><span class="op">/</span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">9</span><span class="op">)</span>, group <span class="op">=</span> <span class="va">Provinces</span>, color<span class="op">=</span><span class="va">Provinces</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">21</span>, color<span class="op">=</span><span class="st">"black"</span>, fill<span class="op">=</span><span class="st">"#69b3a2"</span>, size<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html">theme_ipsum</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Value"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Tourism and culture function expenditure (in trillion IDR) 2011-2020"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position<span class="op">=</span><span class="st">"bottom"</span>, plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">11</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Kemudian Jika dilihat dari data historical 10 tahun terakhir, pengeluaran untuk pariwisata dan kebudayaan di NTB cenderung stagnan atau berfluktuasi dan tidak memiliki kecenderungan tren meningkat atau menurun. Jika dibandingkan dengan DI Yogyakarta itu cukup berbeda, DI Yogyakarta memiliki trend yang meningkat sepanjang tahun untuk pengeluaran dalam pariwisata dan kebudayaan.Pergerakan pengeluaran daerah pariwisata dan kebudayaan di NTB selaras dengan Nusa Tenggara Timur, Bali dan Jawa Timur. Sektor pariwisata di NTB dapat berpotensi menjadi sektor unggulan untuk NTB yang seharusnya dapat dimanfaatkan dengan maksimal. Aktualisasinta dapat melalui anggaran yang dikeluarkan lebih besar dalam aspek ini.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html">pie</a></span><span class="op">(</span><span class="va">ntb</span><span class="op">$</span><span class="va">value</span>, labels <span class="op">=</span> <span class="va">target</span>, border<span class="op">=</span><span class="st">"white"</span>, col<span class="op">=</span><span class="va">myPalette</span>, </span>
+<span>    main<span class="op">=</span><span class="st">"Pengeluaran Daerah untuk Pariwisata \ndan Kebudayaan (Share) 2020"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sementara itu, jika dilihar dari kabupaten kota di Lombok Timur pengeluaran daerah untuk pariwisata dan kebudayaan terbesar terdapat pada Kabupaten Dompu dan Kabupaten Lombok Timur.</p>
+</section><section id="pendapatan-asli-daerah" class="level3" data-number="1.2"><h3 data-number="1.2" class="anchored" data-anchor-id="pendapatan-asli-daerah">
+<span class="header-section-number">1.2</span> 2. Pendapatan Asli daerah</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pad</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Total Own Source Revenue/PAD (in IDR)"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">pad</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">pad</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">pad</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">pad</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">pad</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="va">pad</span> <span class="op">&lt;-</span> <span class="va">pad</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="va">pad</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="va">pad</span><span class="op">$</span><span class="va">value</span><span class="op">/</span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pad</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Provinces <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">Provinces</span>, <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Provinces</span>, y<span class="op">=</span><span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span>, fill<span class="op">=</span><span class="st">"#f68060"</span>, alpha<span class="op">=</span><span class="fl">.6</span>, width<span class="op">=</span><span class="fl">.4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Pendapatan Asli Daerah (dalam miliar rupiah) 2020"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Jika dilihat dari pendapatan asli daerah di kabupaten kota di NTB, yang tertinggi adalah kota Mataram disusul oleh Lombok Timur. Sumber utama pendapatan asli daerah Lombok Timur berasal dari pajak daerah, retribusi daerah, pendapatan asli daerah lain-lain yang sah. Adapun komponen pajak daerah dan retribusi daerah yaitu: pajak kendaraan bermotor, bea balik nama kendaraan bermotor, pajak bahan bakar kendaraan bermotor, pajak hotel dan restoran, pajak hiburan, pajak reklame, pajak penerangan jalan, pajak pengambilan dan pengelolaan bahan galian Golongan C, serta pajak pemanfaatan air bawah tanah dan air permukaan.</p>
+</section><section id="total-populasi" class="level3" data-number="1.3"><h3 data-number="1.3" class="anchored" data-anchor-id="total-populasi">
+<span class="header-section-number">1.3</span> 3. Total Populasi</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pop</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Total Population (in number of people)"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">pop</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">pop</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="va">pop</span> <span class="op">&lt;-</span> <span class="va">pop</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">treemap</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/treemap/man/treemap.html">treemap</a></span><span class="op">(</span><span class="va">pop</span>,</span>
+<span>            index<span class="op">=</span><span class="st">"Provinces"</span>,</span>
+<span>            vSize<span class="op">=</span><span class="st">"value"</span>,</span>
+<span>            type<span class="op">=</span><span class="st">"index"</span>,</span>
+<span>            title <span class="op">=</span> <span class="st">"Total Populasi Tahun 2020"</span></span>
+<span>            <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ternyata populasi terbesar di Lombok NTB adalah Kabupaten Lombok Timur</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">padpop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">pad</span><span class="op">$</span><span class="va">value</span>, <span class="va">pop</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">padpop</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"PAD"</span>,<span class="st">"POP"</span><span class="op">)</span></span>
+<span><span class="va">padpop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">padpop</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">padpop</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">pad</span><span class="op">$</span><span class="va">Provinces</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">padpop</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">PAD</span>, y<span class="op">=</span><span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span></span>
+<span>        color<span class="op">=</span><span class="st">"orange"</span>,</span>
+<span>        fill<span class="op">=</span><span class="st">"#69b3a2"</span>,</span>
+<span>        shape<span class="op">=</span><span class="fl">21</span>,</span>
+<span>        alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span>        size<span class="op">=</span><span class="fl">6</span>,</span>
+<span>        stroke <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>      legend.position<span class="op">=</span><span class="st">"none"</span>,</span>
+<span>      plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">11</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Hubungan PAD dengan Total Populasi"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>label<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">padpop</span><span class="op">)</span>, </span>
+<span>    nudge_x <span class="op">=</span> <span class="fl">0.25</span>, nudge_y <span class="op">=</span> <span class="fl">0.25</span>, </span>
+<span>    check_overlap <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Total populasi sejalan dengan besarnya Pendapatan asli daerah kecuali di kota Mataram. Kota Mataram populasinya kecil tapi memiliki pendapatan asli daerah yang tinggi, tidak heran karena Mataram adalah ibu kota, pusat administrasi, dan pusat bisnis di NTB.</p>
+</section><section id="gini-index-dan-poverty-rate" class="level3" data-number="1.4"><h3 data-number="1.4" class="anchored" data-anchor-id="gini-index-dan-poverty-rate">
+<span class="header-section-number">1.4</span> 4. Gini Index dan Poverty Rate</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gini</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Gini index"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">gini</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">gini</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">gini</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">gini</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">gini</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="va">gini</span> <span class="op">&lt;-</span> <span class="va">gini</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">poverty</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Poverty Rate (in % of population)"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">poverty</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">poverty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">poverty</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">poverty</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">poverty</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="va">poverty</span> <span class="op">&lt;-</span> <span class="va">poverty</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">gini</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Provinces</span>, y<span class="op">=</span><span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Provinces</span>, xend<span class="op">=</span><span class="va">Provinces</span>, y<span class="op">=</span><span class="fl">0</span>, yend<span class="op">=</span><span class="va">value</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"skyblue"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span> color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">4</span>, alpha<span class="op">=</span><span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_light</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    panel.grid.major.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.ticks.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">poverty</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Provinces</span>, y<span class="op">=</span><span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Provinces</span>, xend<span class="op">=</span><span class="va">Provinces</span>, y<span class="op">=</span><span class="fl">0</span>, yend<span class="op">=</span><span class="va">value</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"skyblue"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span> color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">4</span>, alpha<span class="op">=</span><span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_light</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    panel.grid.major.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    panel.border <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.ticks.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html">ggarrange</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, </span>
+<span>          labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gini Index"</span>, <span class="st">"Poverty Rate"</span><span class="op">)</span>,</span>
+<span>          ncol <span class="op">=</span> <span class="fl">2</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Kondisi kesejahteraan dan kemiskinan di NTB dapat dicerminkan oleh indikator indeks gini untuk kesenjangan dan poverty rate untuk kemiskinan. Kesenjangan di NTB rata-rata diatas 0,3 hanya ada satu yang di bawah 0,3 yaitu di Sumbawa Barat, artinya kesenjangan nya cukup kecil. Kemudian untuk poverty rate atau tingkat kemiskinan tertinggi terjadi di Kabupaten Lombok Utara sementara itu dilihat dari indeks gini sebenarnya Lombok Utara bukan yang paling tinggi untuk gini teks. Indeks gini paling tinggi adalah Lombok Tengah. Tingkat kemiskinan terendah terdapat di Kota Bima dan Kota Mataram. Tapi di Bima dan Mataram gini indexnya itu cukup tinggi sehingga walaupun kemiskinan yang kecil tapi terjadi kesenjangan yang cukup tinggi di Bima dan Mataram.</p>
+</section><section id="labor-rate-dan-unemployment-rate" class="level3" data-number="1.5"><h3 data-number="1.5" class="anchored" data-anchor-id="labor-rate-dan-unemployment-rate">
+<span class="header-section-number">1.5</span> 5. Labor rate dan Unemployment Rate</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">u</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Number of people employed"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">u</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">u</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">u</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="va">u</span> <span class="op">&lt;-</span> <span class="va">u</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">un</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Number of people unemployed"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">un</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">un</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">un</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">un</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">un</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="va">un</span> <span class="op">&lt;-</span> <span class="va">un</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">labor</span> <span class="op">&lt;-</span> <span class="va">datadapoer2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Series.Name</span><span class="op">==</span><span class="st">"Number of people in labor force"</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Provinces.Name</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">labor</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Provinces'</span>, <span class="fl">2011</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">labor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">labor</span><span class="op">)</span>, id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span><span class="op">)</span>, variable.name <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span></span>
+<span><span class="va">labor</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">labor</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="va">labor</span> <span class="op">&lt;-</span> <span class="va">labor</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span><span class="op">==</span><span class="fl">2020</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">u</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="va">u</span><span class="op">$</span><span class="va">value</span><span class="op">/</span><span class="va">labor</span><span class="op">$</span><span class="va">value</span><span class="op">*</span><span class="fl">100</span> </span>
+<span><span class="va">un</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="va">un</span><span class="op">$</span><span class="va">value</span><span class="op">/</span><span class="va">labor</span><span class="op">$</span><span class="va">value</span><span class="op">*</span><span class="fl">100</span></span>
+<span><span class="va">alllabor</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">u</span><span class="op">$</span><span class="va">Provinces</span>, <span class="va">u</span><span class="op">$</span><span class="va">value</span>,<span class="va">un</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">alllabor</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Provinces"</span>, <span class="st">'Labor Rate'</span>, <span class="st">'Unemployment Rate'</span><span class="op">)</span></span>
+<span><span class="va">alllabor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">alllabor</span><span class="op">)</span></span>
+<span><span class="va">alllabor</span><span class="op">&lt;-</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/melt.data.table.html">melt</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="va">alllabor</span><span class="op">)</span>,id.vars<span class="op">=</span><span class="st">"Provinces"</span>, variable.name <span class="op">=</span> <span class="st">"Rate"</span><span class="op">)</span></span>
+<span><span class="va">alllabor</span><span class="op">$</span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">alllabor</span><span class="op">$</span><span class="va">value</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">alllabor</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Rate</span>, y <span class="op">=</span> <span class="va">value</span>, fill <span class="op">=</span> <span class="va">Provinces</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Ketenagakerjaan"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="vizindodapoer_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Kota atau Kabupaten di NTB yang memiliki tingkat pengangguran tertinggi itu berada di Kota Mataram, sedangkan yang memiliki tingkat pengangguran terendah itu berada di Kabupaten Dompu.</p>
+
+
+<!-- -->
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb28" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Eksplorasi Data Ekonomi dan Kebijakan di Nusa Tenggara Barat - Data INDODAPOER"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 8/28/2023 </span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Deri Siswara </span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: flatly</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: false</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> yes</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [code, eksplorasi, visualization, indodapoer]</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "indocover.png"</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">eval =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">warning =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.align =</span> <span class="st">"center"</span>)</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>Nusa Tenggara Barat (NTB) ialah sebuah provinsi di Indonesia yang berada di bagian tengah Kepulauan Nusa Tenggara di antara provinsi Bali di sebelah barat dan provinsi Nusa Tenggara Timur di sebelah Timur. Ibu kota provinsi ini berada di kota Mataram. Nusa Tenggara Barat memiliki 8 Kabupaten dan 2 Kota, termasuk kota Mataram. Pada tahun 2020, penduduk Nusa Tenggara Barat berjumlah 5.320.092 jiwa, dengan kepadatan 264 jiwa/km2.</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>Dalam menunjang penelitian terkait pemetaaan sosial ekonomi di Nusa Tenggara Barat (NTB), publikasi ini memuat kondisi eksisting makroekonomi di NTB. Ekolorasi ini menggunakan data INDODAPOER. List data yang digunakan yakni:</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pengeluaran Daerah untuk Pariwisata dan Kebudayaan</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pendapatan Asli daerah</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Total Populasi</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gini Index dan Poverty Rate</span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Labor rate dan Unemployment Rate</span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Persiapan Data</span></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>datadapoer <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datadapoer.xlsx"</span>)</span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datadapoer)</span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datadapoer) <span class="ot">&lt;-</span> <span class="fu">names</span>(datadapoer) <span class="sc">%&gt;%</span> <span class="fu">make.names</span>()</span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datadapoer)</span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>datadapoer2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datadapoer2.xlsx"</span>)</span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datadapoer2)</span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datadapoer2) <span class="ot">&lt;-</span> <span class="fu">names</span>(datadapoer2) <span class="sc">%&gt;%</span> <span class="fu">make.names</span>()</span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datadapoer2)</span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Pengeluaran Daerah untuk Pariwisata</span></span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>tourism <span class="ot">&lt;-</span> datadapoer <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Tourism and culture function expenditure (in IDR)"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tourism) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a>tourism <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(tourism), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a>tourism<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(tourism<span class="sc">$</span>value)</span>
+<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bali, Prop."</span>,<span class="st">"DI Yogyakarta, Prop."</span>, <span class="st">'Jawa Timur, Prop.'</span>, <span class="st">"Nusa Tenggara Timur, Prop."</span>,<span class="st">"Nusa Tenggara Barat, Prop."</span>)</span>
+<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a>tourism <span class="ot">&lt;-</span> tourism <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Provinces<span class="sc">%in%</span> target) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a>tourism</span>
+<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a>tourism2 <span class="ot">&lt;-</span> datadapoer <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Tourism and culture function expenditure (in IDR)"</span>)  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tourism2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a>tourism2 <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(tourism2), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a>tourism2<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(tourism2<span class="sc">$</span>value)</span>
+<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bali, Prop."</span>,<span class="st">"DI Yogyakarta, Prop."</span>, <span class="st">'Jawa Timur, Prop.'</span>,<span class="st">"Nusa Tenggara Barat, Prop."</span>)</span>
+<span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a>target2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a>tourism2 <span class="ot">&lt;-</span> tourism2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Provinces <span class="sc">%in%</span> target)</span>
+<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a>tourism2<span class="sc">$</span>Provinces <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Bali"</span>,<span class="st">"DI Yogyakarta"</span>,<span class="st">"Jawa Timur"</span>,<span class="st">"Nusa Tenggara Barat"</span>),<span class="dv">10</span>)</span>
+<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a>ntb <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Tourism and culture function expenditure (in IDR)"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-106"><a href="#cb28-106" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ntb) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-107"><a href="#cb28-107" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-108"><a href="#cb28-108" aria-hidden="true" tabindex="-1"></a>ntb <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(ntb), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-109"><a href="#cb28-109" aria-hidden="true" tabindex="-1"></a>ntb<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(ntb<span class="sc">$</span>value)</span>
+<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ntb<span class="sc">$</span>Provinces)</span>
+<span id="cb28-111"><a href="#cb28-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-112"><a href="#cb28-112" aria-hidden="true" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bima, Kab."</span>  ,              <span class="st">" Bima, Kota"</span>   ,           <span class="st">"Dompu, Kab."</span>    ,     <span class="st">'Lombok Barat, Kab.'</span> ,       <span class="st">'Lombok Tengah, Kab.'</span>  ,       <span class="st">'Lombok Timur, Kab.'</span>  ,       <span class="st">'Lombok Utara, Kab.'</span> ,             <span class="st">'Mataram, Kota'</span>,</span>
+<span id="cb28-113"><a href="#cb28-113" aria-hidden="true" tabindex="-1"></a>      <span class="st">' Sumbawa Barat, Kab.'</span>  ,            <span class="st">'Sumbawa, Kab.'</span> )</span>
+<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a>ntb <span class="ot">&lt;-</span> ntb <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Provinces<span class="sc">%in%</span> target) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a>ntb</span>
+<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-121"><a href="#cb28-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-122"><a href="#cb28-122" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb28-123"><a href="#cb28-123" aria-hidden="true" tabindex="-1"></a>myPalette <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="dv">4</span>, <span class="st">"Set2"</span>) </span>
+<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(tourism<span class="sc">$</span>value, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Bali"</span>,<span class="st">"DI Yogyakarta"</span>, <span class="st">'Jawa Timur'</span>, <span class="st">"Nusa Tenggara Barat"</span>, <span class="st">"Nusa Tenggara Timur"</span>), <span class="at">border=</span><span class="st">"white"</span>, <span class="at">col=</span>myPalette, </span>
+<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a>    <span class="at">main=</span><span class="st">"Pengeluaran Daerah untuk Pariwisata </span><span class="sc">\n</span><span class="st">dan Kebudayaan (Share)"</span>)</span>
+<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a>NTB merupakan provinsi di Indonesia yang memiliki kekayaan beragam wisata pulau, salah satu yang terkenal adalah Pulau Lombok. Pulau Lombok merupakan salah satu Daerah Tujuan wisata (DTW) di Indonesia, yang merupakan bagian dari propinsi NTB. Potensi pariwisata yang dimiliki oleh Pulau Lombok merupakan salah satu usaha dalam rangka menggali sumber-sumber pendapatan daerah yang bertujuan untuk meningkatkan kesejahteraan masyarakat.</span>
+<span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-130"><a href="#cb28-130" aria-hidden="true" tabindex="-1"></a>Keseriusan pemerintah daerah untuk sektor pariwisata dapat tercermin pada indikator fiskal *Pengeluaran Daerah untuk Pariwisata dan Kebudayaan*. Pie chart di atas menunjukkan perbandingan Pengeluaran Daerah untuk Pariwisata dan Kebudayaan di NTB dengan berbagai daerah yang secara populasi dan karakteristik cukup dekat.</span>
+<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-132"><a href="#cb28-132" aria-hidden="true" tabindex="-1"></a>Dapat terlihat bahwa pengeluaran daerah untuk pariwisata dan kebudayaan di berbagai daerah terdapat perbedaan yang signifikan. Daerah yang memiliki pengeluaran daerah untuk pariwisata dan kebudayaan yang terbesar adalah provinsi di Yogyakarta hal ini karena di DI Yogyakarta terdapat Candi Borobudur sebagai warisan budaya Indonesia yang dalam perawatannya membutuhkan anggaran yang cukup besar. Jika dibandingkan dengan Bali dan Nusa Tenggara Timur,pengeluaran untuk pariwisata dan kebudayaan NTB masih rendah dibandingkan dengan Bali. NTB secara pariwisata masih kalah dibandingkan dengan Bali. NTB masih mengandalkan sektot pertanian sebagai sumber pendapatan utama daerah.</span>
+<span id="cb28-133"><a href="#cb28-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a>tourism2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">'tourism2.xlsx'</span>)</span>
+<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-140"><a href="#cb28-140" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb28-141"><a href="#cb28-141" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a>tourism2 <span class="sc">%&gt;%</span></span>
+<span id="cb28-144"><a href="#cb28-144" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>value<span class="sc">/</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>), <span class="at">group =</span> Provinces, <span class="at">color=</span>Provinces)) <span class="sc">+</span></span>
+<span id="cb28-145"><a href="#cb28-145" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">21</span>, <span class="at">color=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"#69b3a2"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb28-147"><a href="#cb28-147" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb28-148"><a href="#cb28-148" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Tourism and culture function expenditure (in trillion IDR) 2011-2020"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>))</span>
+<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a>Kemudian Jika dilihat dari data historical  10 tahun terakhir, pengeluaran untuk pariwisata dan kebudayaan di NTB cenderung stagnan atau berfluktuasi dan tidak memiliki kecenderungan tren meningkat atau menurun. Jika dibandingkan dengan DI Yogyakarta itu cukup berbeda, DI Yogyakarta memiliki trend yang meningkat sepanjang tahun untuk pengeluaran dalam pariwisata dan kebudayaan.Pergerakan pengeluaran daerah pariwisata dan kebudayaan di NTB selaras dengan Nusa Tenggara Timur, Bali dan Jawa Timur. Sektor pariwisata di NTB dapat berpotensi menjadi sektor unggulan untuk NTB yang seharusnya dapat dimanfaatkan dengan maksimal. Aktualisasinta dapat melalui anggaran yang dikeluarkan lebih besar dalam aspek ini.</span>
+<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(ntb<span class="sc">$</span>value, <span class="at">labels =</span> target, <span class="at">border=</span><span class="st">"white"</span>, <span class="at">col=</span>myPalette, </span>
+<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a>    <span class="at">main=</span><span class="st">"Pengeluaran Daerah untuk Pariwisata </span><span class="sc">\n</span><span class="st">dan Kebudayaan (Share) 2020"</span>)</span>
+<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a>Sementara itu, jika dilihar dari kabupaten kota di Lombok Timur pengeluaran daerah untuk pariwisata dan kebudayaan terbesar terdapat pada Kabupaten Dompu dan Kabupaten Lombok Timur.</span>
+<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Pendapatan Asli daerah</span></span>
+<span id="cb28-161"><a href="#cb28-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a>pad <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Total Own Source Revenue/PAD (in IDR)"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(pad) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a>pad <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(pad), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a>pad<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pad<span class="sc">$</span>value)</span>
+<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a>pad <span class="ot">&lt;-</span> pad <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-172"><a href="#cb28-172" aria-hidden="true" tabindex="-1"></a>pad<span class="sc">$</span>value <span class="ot">&lt;-</span> pad<span class="sc">$</span>value<span class="sc">/</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>)</span>
+<span id="cb28-173"><a href="#cb28-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-177"><a href="#cb28-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a>pad <span class="sc">%&gt;%</span></span>
+<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Provinces =</span> <span class="fu">fct_reorder</span>(Provinces, value)) <span class="sc">%&gt;%</span></span>
+<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>Provinces, <span class="at">y=</span>value)) <span class="sc">+</span></span>
+<span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"#f68060"</span>, <span class="at">alpha=</span>.<span class="dv">6</span>, <span class="at">width=</span>.<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Pendapatan Asli Daerah (dalam miliar rupiah) 2020"</span>)<span class="sc">+</span></span>
+<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a>Jika dilihat dari pendapatan asli daerah di kabupaten kota di NTB, yang tertinggi adalah kota Mataram disusul oleh Lombok Timur. Sumber utama pendapatan asli daerah Lombok Timur berasal dari pajak daerah, retribusi daerah, pendapatan asli daerah lain-lain yang sah. Adapun komponen pajak daerah dan retribusi daerah yaitu: pajak kendaraan bermotor, bea balik nama kendaraan bermotor, pajak bahan bakar kendaraan bermotor, pajak hotel dan restoran, pajak hiburan, pajak reklame, pajak penerangan jalan, pajak pengambilan dan pengelolaan bahan galian Golongan C, serta pajak pemanfaatan air bawah tanah dan air permukaan.</span>
+<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Total Populasi</span></span>
+<span id="cb28-191"><a href="#cb28-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-192"><a href="#cb28-192" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Total Population (in number of people)"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(pop) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(pop), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a>pop<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pop<span class="sc">$</span>value)</span>
+<span id="cb28-198"><a href="#cb28-198" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> pop <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-199"><a href="#cb28-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemap)</span>
+<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a><span class="fu">treemap</span>(pop,</span>
+<span id="cb28-205"><a href="#cb28-205" aria-hidden="true" tabindex="-1"></a>            <span class="at">index=</span><span class="st">"Provinces"</span>,</span>
+<span id="cb28-206"><a href="#cb28-206" aria-hidden="true" tabindex="-1"></a>            <span class="at">vSize=</span><span class="st">"value"</span>,</span>
+<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a>            <span class="at">type=</span><span class="st">"index"</span>,</span>
+<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"Total Populasi Tahun 2020"</span></span>
+<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a>Ternyata populasi terbesar di Lombok NTB adalah Kabupaten Lombok Timur</span>
+<span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-216"><a href="#cb28-216" aria-hidden="true" tabindex="-1"></a>padpop <span class="ot">&lt;-</span> <span class="fu">cbind</span>(pad<span class="sc">$</span>value, pop<span class="sc">$</span>value)</span>
+<span id="cb28-217"><a href="#cb28-217" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(padpop) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PAD"</span>,<span class="st">"POP"</span>)</span>
+<span id="cb28-218"><a href="#cb28-218" aria-hidden="true" tabindex="-1"></a>padpop <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(padpop)</span>
+<span id="cb28-219"><a href="#cb28-219" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(padpop) <span class="ot">&lt;-</span> pad<span class="sc">$</span>Provinces</span>
+<span id="cb28-220"><a href="#cb28-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-221"><a href="#cb28-221" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(padpop, <span class="fu">aes</span>(<span class="at">x=</span>PAD, <span class="at">y=</span>POP)) <span class="sc">+</span> </span>
+<span id="cb28-222"><a href="#cb28-222" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb28-223"><a href="#cb28-223" aria-hidden="true" tabindex="-1"></a>        <span class="at">color=</span><span class="st">"orange"</span>,</span>
+<span id="cb28-224"><a href="#cb28-224" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill=</span><span class="st">"#69b3a2"</span>,</span>
+<span id="cb28-225"><a href="#cb28-225" aria-hidden="true" tabindex="-1"></a>        <span class="at">shape=</span><span class="dv">21</span>,</span>
+<span id="cb28-226"><a href="#cb28-226" aria-hidden="true" tabindex="-1"></a>        <span class="at">alpha=</span><span class="fl">0.5</span>,</span>
+<span id="cb28-227"><a href="#cb28-227" aria-hidden="true" tabindex="-1"></a>        <span class="at">size=</span><span class="dv">6</span>,</span>
+<span id="cb28-228"><a href="#cb28-228" aria-hidden="true" tabindex="-1"></a>        <span class="at">stroke =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb28-229"><a href="#cb28-229" aria-hidden="true" tabindex="-1"></a>         <span class="fu">theme</span>(</span>
+<span id="cb28-230"><a href="#cb28-230" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position=</span><span class="st">"none"</span>,</span>
+<span id="cb28-231"><a href="#cb28-231" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>)) <span class="sc">+</span></span>
+<span id="cb28-232"><a href="#cb28-232" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Hubungan PAD dengan Total Populasi"</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="at">label=</span><span class="fu">rownames</span>(padpop), </span>
+<span id="cb28-233"><a href="#cb28-233" aria-hidden="true" tabindex="-1"></a>    <span class="at">nudge_x =</span> <span class="fl">0.25</span>, <span class="at">nudge_y =</span> <span class="fl">0.25</span>, </span>
+<span id="cb28-234"><a href="#cb28-234" aria-hidden="true" tabindex="-1"></a>    <span class="at">check_overlap =</span> T)</span>
+<span id="cb28-235"><a href="#cb28-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-236"><a href="#cb28-236" aria-hidden="true" tabindex="-1"></a>Total populasi sejalan dengan besarnya Pendapatan asli daerah kecuali di kota Mataram. Kota Mataram populasinya kecil tapi memiliki pendapatan asli daerah yang tinggi, tidak heran karena Mataram adalah ibu kota, pusat administrasi, dan pusat bisnis di NTB.</span>
+<span id="cb28-237"><a href="#cb28-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-238"><a href="#cb28-238" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Gini Index dan Poverty Rate</span></span>
+<span id="cb28-239"><a href="#cb28-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.width = 10}</span></span>
+<span id="cb28-240"><a href="#cb28-240" aria-hidden="true" tabindex="-1"></a>gini <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Gini index"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-241"><a href="#cb28-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-242"><a href="#cb28-242" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gini) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-243"><a href="#cb28-243" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-244"><a href="#cb28-244" aria-hidden="true" tabindex="-1"></a>gini <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(gini), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-245"><a href="#cb28-245" aria-hidden="true" tabindex="-1"></a>gini<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(gini<span class="sc">$</span>value)</span>
+<span id="cb28-246"><a href="#cb28-246" aria-hidden="true" tabindex="-1"></a>gini <span class="ot">&lt;-</span> gini <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-247"><a href="#cb28-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-248"><a href="#cb28-248" aria-hidden="true" tabindex="-1"></a>poverty <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Poverty Rate (in % of population)"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-249"><a href="#cb28-249" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-250"><a href="#cb28-250" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(poverty) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-251"><a href="#cb28-251" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-252"><a href="#cb28-252" aria-hidden="true" tabindex="-1"></a>poverty <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(poverty), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-253"><a href="#cb28-253" aria-hidden="true" tabindex="-1"></a>poverty<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(poverty<span class="sc">$</span>value)</span>
+<span id="cb28-254"><a href="#cb28-254" aria-hidden="true" tabindex="-1"></a>poverty <span class="ot">&lt;-</span> poverty <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-255"><a href="#cb28-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-259"><a href="#cb28-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-260"><a href="#cb28-260" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb28-261"><a href="#cb28-261" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gini, <span class="fu">aes</span>(<span class="at">x=</span>Provinces, <span class="at">y=</span>value)) <span class="sc">+</span></span>
+<span id="cb28-262"><a href="#cb28-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>( <span class="fu">aes</span>(<span class="at">x=</span>Provinces, <span class="at">xend=</span>Provinces, <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend=</span>value), <span class="at">color=</span><span class="st">"skyblue"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>( <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="dv">4</span>, <span class="at">alpha=</span><span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb28-263"><a href="#cb28-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb28-264"><a href="#cb28-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb28-265"><a href="#cb28-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb28-266"><a href="#cb28-266" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb28-267"><a href="#cb28-267" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb28-268"><a href="#cb28-268" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb28-269"><a href="#cb28-269" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-270"><a href="#cb28-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-271"><a href="#cb28-271" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(poverty, <span class="fu">aes</span>(<span class="at">x=</span>Provinces, <span class="at">y=</span>value)) <span class="sc">+</span></span>
+<span id="cb28-272"><a href="#cb28-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>( <span class="fu">aes</span>(<span class="at">x=</span>Provinces, <span class="at">xend=</span>Provinces, <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend=</span>value), <span class="at">color=</span><span class="st">"skyblue"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>( <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="dv">4</span>, <span class="at">alpha=</span><span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb28-273"><a href="#cb28-273" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb28-274"><a href="#cb28-274" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb28-275"><a href="#cb28-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb28-276"><a href="#cb28-276" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb28-277"><a href="#cb28-277" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb28-278"><a href="#cb28-278" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb28-279"><a href="#cb28-279" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb28-280"><a href="#cb28-280" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(a, b, </span>
+<span id="cb28-281"><a href="#cb28-281" aria-hidden="true" tabindex="-1"></a>          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Gini Index"</span>, <span class="st">"Poverty Rate"</span>),</span>
+<span id="cb28-282"><a href="#cb28-282" aria-hidden="true" tabindex="-1"></a>          <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb28-283"><a href="#cb28-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-284"><a href="#cb28-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-285"><a href="#cb28-285" aria-hidden="true" tabindex="-1"></a>Kondisi kesejahteraan dan kemiskinan di NTB dapat dicerminkan oleh indikator indeks gini untuk kesenjangan dan poverty rate untuk kemiskinan.  Kesenjangan di NTB rata-rata diatas 0,3 hanya ada satu yang di bawah 0,3 yaitu di Sumbawa Barat, artinya kesenjangan nya cukup kecil. Kemudian untuk poverty rate atau tingkat kemiskinan tertinggi terjadi di Kabupaten Lombok Utara sementara itu dilihat dari indeks gini sebenarnya Lombok Utara  bukan yang paling tinggi untuk gini teks. Indeks gini paling tinggi adalah Lombok Tengah. Tingkat kemiskinan terendah terdapat di Kota Bima dan Kota Mataram. Tapi di Bima dan Mataram gini indexnya itu cukup tinggi sehingga walaupun kemiskinan yang kecil tapi terjadi kesenjangan yang cukup tinggi di Bima dan Mataram.</span>
+<span id="cb28-286"><a href="#cb28-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-287"><a href="#cb28-287" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. Labor rate  dan Unemployment Rate</span></span>
+<span id="cb28-290"><a href="#cb28-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-291"><a href="#cb28-291" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Number of people employed"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-292"><a href="#cb28-292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-293"><a href="#cb28-293" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(u) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-294"><a href="#cb28-294" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-295"><a href="#cb28-295" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(u), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a>u<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(u<span class="sc">$</span>value)</span>
+<span id="cb28-297"><a href="#cb28-297" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> u <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-299"><a href="#cb28-299" aria-hidden="true" tabindex="-1"></a>un <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Number of people unemployed"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-300"><a href="#cb28-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-301"><a href="#cb28-301" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(un) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-302"><a href="#cb28-302" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-303"><a href="#cb28-303" aria-hidden="true" tabindex="-1"></a>un <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(un), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-304"><a href="#cb28-304" aria-hidden="true" tabindex="-1"></a>un<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(un<span class="sc">$</span>value)</span>
+<span id="cb28-305"><a href="#cb28-305" aria-hidden="true" tabindex="-1"></a>un <span class="ot">&lt;-</span> un <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-306"><a href="#cb28-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-307"><a href="#cb28-307" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> datadapoer2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Series.Name<span class="sc">==</span><span class="st">"Number of people in labor force"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb28-308"><a href="#cb28-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Provinces.Name,<span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb28-309"><a href="#cb28-309" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(labor) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Provinces'</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb28-310"><a href="#cb28-310" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb28-311"><a href="#cb28-311" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">setDT</span>(labor), <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>), <span class="at">variable.name =</span> <span class="st">"Year"</span>)</span>
+<span id="cb28-312"><a href="#cb28-312" aria-hidden="true" tabindex="-1"></a>labor<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(labor<span class="sc">$</span>value)</span>
+<span id="cb28-313"><a href="#cb28-313" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> labor <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb28-314"><a href="#cb28-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-315"><a href="#cb28-315" aria-hidden="true" tabindex="-1"></a>u<span class="sc">$</span>value <span class="ot">&lt;-</span> u<span class="sc">$</span>value<span class="sc">/</span>labor<span class="sc">$</span>value<span class="sc">*</span><span class="dv">100</span> </span>
+<span id="cb28-316"><a href="#cb28-316" aria-hidden="true" tabindex="-1"></a>un<span class="sc">$</span>value <span class="ot">&lt;-</span> un<span class="sc">$</span>value<span class="sc">/</span>labor<span class="sc">$</span>value<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb28-317"><a href="#cb28-317" aria-hidden="true" tabindex="-1"></a>alllabor<span class="ot">&lt;-</span> <span class="fu">cbind</span>(u<span class="sc">$</span>Provinces, u<span class="sc">$</span>value,un<span class="sc">$</span>value)</span>
+<span id="cb28-318"><a href="#cb28-318" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(alllabor) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Provinces"</span>, <span class="st">'Labor Rate'</span>, <span class="st">'Unemployment Rate'</span>)</span>
+<span id="cb28-319"><a href="#cb28-319" aria-hidden="true" tabindex="-1"></a>alllabor <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(alllabor)</span>
+<span id="cb28-320"><a href="#cb28-320" aria-hidden="true" tabindex="-1"></a>alllabor<span class="ot">&lt;-</span><span class="fu">melt</span>(<span class="fu">setDT</span>(alllabor),<span class="at">id.vars=</span><span class="st">"Provinces"</span>, <span class="at">variable.name =</span> <span class="st">"Rate"</span>)</span>
+<span id="cb28-321"><a href="#cb28-321" aria-hidden="true" tabindex="-1"></a>alllabor<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(alllabor<span class="sc">$</span>value),<span class="dv">2</span>)</span>
+<span id="cb28-322"><a href="#cb28-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-323"><a href="#cb28-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-326"><a href="#cb28-326" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-327"><a href="#cb28-327" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(alllabor, <span class="fu">aes</span>(<span class="at">x =</span> Rate, <span class="at">y =</span> value, <span class="at">fill =</span> Provinces)) <span class="sc">+</span></span>
+<span id="cb28-328"><a href="#cb28-328" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Ketenagakerjaan"</span>)</span>
+<span id="cb28-329"><a href="#cb28-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-330"><a href="#cb28-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-331"><a href="#cb28-331" aria-hidden="true" tabindex="-1"></a>Kota atau Kabupaten di NTB yang memiliki tingkat pengangguran tertinggi itu berada di Kota Mataram, sedangkan yang memiliki tingkat pengangguran terendah itu berada di Kabupaten Dompu.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left"><span class="container"><strong>Made with <a href="https://quarto.org/" target="_blank">Posit Quarto</a></strong></span></div>   
+    <div class="nav-footer-right"><span class="container"><strong><a href="mailto:derikayz@gmail.com" target="_blank">Contact Dekayz</a></strong></span></div>
+  </div>
+</footer>
+
+
+</body></html>
