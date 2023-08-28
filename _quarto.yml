@@ -11,7 +11,7 @@ website:
       <span class="container"><strong>[Contact Dekayz](mailto:derikayz@gmail.com){target="_blank"}</strong></span>
     left: |
       <span class="container"><strong>Made with [Posit Quarto](https://quarto.org/){target="_blank"}</strong></span>
-    background: "#004E4F"
+    background: "#040b4d"
     
   navbar:
     
@@ -40,7 +40,7 @@ format:
     code-link: true
     code-fold: show
     code-tools: false
-    code-block-border-left: "#004E4F"
+    code-block-border-left: "#040b4d"
     
 
     
