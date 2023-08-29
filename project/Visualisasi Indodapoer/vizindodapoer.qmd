@@ -12,7 +12,7 @@ format:
     toc: false
     number-sections: true
 link-citations: yes
-categories: [code, eksplorasi, visualization, indodapoer]
+categories: [R, Eksplorasi, Visualization, Indodapoer]
 image: "indocover.png"
 ---
 

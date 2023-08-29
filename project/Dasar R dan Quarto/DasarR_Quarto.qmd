@@ -12,7 +12,7 @@ format:
     toc: false
     number-sections: true
 link-citations: yes
-categories: [code, Dasar R, R, Quarto]
+categories: [Dasar R, R, Quarto Markdown]
 image: "COVERR.PNG"
 ---
 
