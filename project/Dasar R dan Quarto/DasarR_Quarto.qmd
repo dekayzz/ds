@@ -1,0 +1,607 @@
+---
+title: "Dasar R dan Quarto Markdown di RStudio"
+date: 8/27/2023 
+author:
+  - name: Deri Siswara 
+title-block-banner: true
+format:
+  html:
+    theme: flatly
+    code-fold: false
+    code-tools: true
+    toc: false
+    number-sections: true
+link-citations: yes
+categories: [code, Dasar R, R, Quarto]
+image: "COVERR.PNG"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center")
+```
+
+## Pengantar
+
+Selamat datang di modul pelatihan dasar R menggunakan RStudio! Dalam modul ini, Anda akan mempelajari dasar-dasar penggunaan RStudio untuk analisis data menggunakan bahasa pemrograman R. RStudio adalah *Integrated Development Environment* (IDE) yang sangat populer untuk pengembangan aplikasi R dan analisis data. Dalam modul ini, Anda akan mempelajari cara mengimpor dan mengelola data, menjalankan perintah R, dan membuat visualisasi data yang menarik menggunakan RStudio.
+
+Pada pelatihan ini, lembar kerja pada RStudio menggunakan Quarto Markdown! Quarto adalah platform dokumentasi modern yang menyediakan format dokumen yang kaya dan mudah dibaca, serta dukungan untuk berbagai bahasa pemrograman termasuk R. Dalam modul ini, Anda akan belajar cara menggunakan Quarto Markdown untuk membuat laporan analisis data yang menarik dan profesional dengan menggunakan kode R. Mari kita mulai!
+
+Lembar kerja pada quarto markdown
+
+![](Screenshot%202023-07-17%20164917.png)
+
+Cara buat lembar kerja baru dengan format quarto markdown
+
+![](Screenshot%202023-07-17%20165136.png)
+
+![](Screenshot%202023-07-17%20165217.png)
+
+## Pendahuluan
+
+### Assignment atau Pembuatan Objek
+
+Kode atau program R yang akan dijalankan tersimpan dalam *chunk* di bawah ini. Cara mudah untuk menjalankan kode R dengan meng-klik *Run Current Chunk*
+
+![](Screenshot%202023-07-17%20164238.png)
+
+Kita dapat membuat chunk secara otomatis dengan kombinasi `ctrl+alt+i` atau klik simbol **+c** di pojok kanan atas.
+
+```{r}
+A <- 2
+```
+
+```{r}
+A # Disebut objek A
+```
+
+```{r}
+A = 2
+A
+```
+
+```{r}
+B <- "Halo Semua"
+B
+```
+
+`<-` dan `=` serupa untuk pembuatan objek. Disarankan menggunakan `<-` agar tidak bertabrakan dengan argumen yang menggunakan simbol `=` juga.
+
+### Case-sensitive
+
+```{r}
+a<-10 #Spasi tidak sensitif
+A
+```
+
+```{r}
+a
+```
+
+### Penamaan objek
+
+-   Diawali huruf (A-Z atau a-z) atau titik (.)
+-   Tidak menggunakan spasi dan karakter spesial (!,\@,#, dst)
+-   Tidak menggunakan atau menghindari kata yang sudah digunakan oleh R (NULL, TRUE, FALSE, q, c, t, sin, cos, dll)
+
+### Operasi dasar
+
+```{r}
+# Operasi Aritmatika
+x <- 5
+y <- 3
+x + y     # Output: 8
+x - y     # Output: 2
+x * y     # Output: 15
+x / y     # Output: 1.666667
+```
+
+```{r}
+# Operasi Logika
+a <- TRUE
+b <- FALSE
+a & b     # Output: FALSE (AND)
+a | b     # Output: TRUE (OR)
+!a        # Output: FALSE (NOT)
+```
+
+```{r}
+# Operasi Pembanding
+x <- 5
+y <- 3
+x > y     # Output: TRUE
+x < y     # Output: FALSE
+x == y    # Output: FALSE
+x >= y    # Output: TRUE
+x <= y    # Output: FALSE
+```
+
+### Latihan
+
+```{r}
+# Buatlah objek beri nama `latihan1` berisi angka 6 dan munculkan outputnya
+```
+
+```{r}
+# Buatlah objek beri nama `latihan2` berisi karakter 'Halo Indonesia" dan munculkan outputnya
+
+```
+
+## Objek di R
+
+Di R, terdapat beberapa struktur data dasar seperti vector, matrix, factor, list, dan data frame. Berikut ini adalah penjelasan perbedaan di antara struktur data tersebut:
+
+-   **Vector** adalah struktur data satu dimensi dengan elemen-elemen yang sama jenisnya.
+
+-   **Matrix** adalah struktur data dua dimensi dengan elemen-elemen yang sama jenisnya.
+
+-   **Factor** adalah struktur data yang digunakan untuk menyimpan variabel kategorikal atau nominal.
+
+-   **List** adalah struktur data yang dapat menyimpan berbagai jenis objek.
+
+-   **Data frame** adalah struktur data yang mirip dengan matriks, tetapi memungkinkan setiap kolom memiliki tipe data yang berbeda dan sering digunakan untuk menyimpan data tabular
+
+### Vector
+
+Membuat vektor: Anda dapat membuat vektor dengan menggunakan fungsi **`c()`**. Contohnya
+
+> Fungsi dalam R adalah kumpulan instruksi yang membentuk suatu tugas tertentu yang dapat digunakan kembali (reusable). Fungsi dalam R dapat digunakan untuk menghindari pengulangan kode yang sama, mengurangi kesalahan dalam kode, dan membuat kode menjadi lebih mudah dibaca dan dimengerti.
+
+Fungsi `c()` adalah fungsi bawaan di R. Untuk mengetahui nama dan cara penggunakan fungsi caranya jalankan perintah `?c` (Help dalam R).
+
+
+```{r}
+a1 <- c(2,4,7,3) # Numeric vector
+a2 <- c("one","two","three") # Character vector
+a3 <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE) # Logical vector
+```
+
+```{r}
+# Memanggil objek vector
+a1
+a3[4]        # Elemen ke-4 pada objek a3
+a2[c(1,3)]   # Elemen ke-1 dan ke-3 pada objek a2
+a1[-1]       # Seluruh elemen kecuali element ke-1
+a1[2:4]      # Elemen ke-2 hingga ke-4
+```
+
+```{r}
+# Operasi vector
+a <- c(1, 2, 3)
+b <- c(4, 5, 6)
+c <- c(a, b)      # Menggabungkan vektor
+c                 # Output: 1 2 3 4 5 6
+c[1:3]            # Output: 1 2 3 (Membagi vektor)
+d <- a + b        # Operasi matematika pada vektor
+d                 # Output: 5 7 9
+```
+
+### Matrix
+
+Membuat matriks: Anda dapat membuat matriks dengan menggunakan fungsi **`matrix()`**. Contohnya
+
+```{r}
+a4 <- 1:12 # Objek vektor dengan nilai 1 sampai 12
+b1 <- matrix(a4,3,4) # Matriks 3x4
+b2 <- matrix(a4,3,4,byrow=TRUE) # Matriks 3x4 dengan mengisi baris terlebih dahulu
+```
+
+```{r}
+b3 <- matrix(1:14,4,4)
+```
+
+Error atau warning seringkali terjadi karena pengunaan fungsi tidak sesuai dengan ketentuan.
+
+**Error**: Fungsi gagal digunakan
+
+**Warning**: Fungsi masih berjalan tapi dengan beberapa catatan
+
+```{r}
+b1
+```
+
+```{r}
+b2
+```
+
+```{r}
+b3
+```
+
+```{r}
+b2[2,3]   # Baris 2 kolom 3
+```
+
+```{r}
+b2[1:2,]  # Baris 1 dan 2 semua kolom
+```
+
+```{r}
+b2[c(1,3),-2] # Baris 1 dan 3, semua kolom kecuali kolom 2
+```
+
+```{r}
+dim(b2) # Dimensi matrix
+```
+
+```{r}
+# Operasi matriks
+m1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)
+m2 <- matrix(c(7, 8, 9, 10, 11, 12), nrow = 2, ncol = 3)
+
+# Penjumlahan Matriks
+m3 <- m1 + m2
+m3
+
+# Perkalian Matriks
+m4 <- m1 %*% t(m2)
+m4
+```
+
+### Factor
+
+Membuat factor: Anda dapat membuat factor dengan menggunakan fungsi **`factor()`**. Contohnya
+
+```{r}
+a5 <- c("A","B","AB","O")
+d1 <- factor(a5) # Skala pengukuran nominal 
+levels(d1) # Sesuai abjad
+```
+
+```{r}
+levels(d1) <- c("Darah A","Darah AB","Darah B","Darah O")
+d1
+```
+
+```{r}
+a6 <- c("SMA","SD","SMP","SMA","SMA","SMA","SMA","SMA","SMA","SMA","SMA","SMA","SMA")
+d5 <- factor(a6, levels=c("SD","SMP","SMA")) # Skala pengukuran ordinal  
+levels(d5) 
+```
+
+```{r}
+d5
+```
+
+### List
+
+Membuat list: Anda dapat membuat list dengan menggunakan fungsi **`list()`**. Contohnya
+
+```{r}
+a1; b2; d1
+```
+
+```{r}
+e1 <- list(a1,b2,d1)
+e2 <- list(vect=a1,mat=b2,fac=d1) 
+e1
+e2
+```
+
+```{r}
+e1[[1]][2] 
+e2$fac 
+e2[2] 
+names(e2)
+```
+
+### Data Frame
+
+Membuat data frame: Anda dapat membuat data frame dengan menggunakan fungsi **`data.frame()`**. Contohnya
+
+```{r}
+Angka <- 11:15 # Numerik
+Huruf <- factor(LETTERS[6:10]) # Kategorik
+f1 <- data.frame(Angka,Huruf)
+f1
+```
+
+```{r}
+f1[1,2] # Baris 1 kolom 2
+f1$Angka # Variabel angka
+f1[,"Huruf"] # Variabel Huruf
+colnames(f1) # Semua nama kolom
+```
+
+```{r}
+str(f1) # Struktur dataframe (jenis data)
+```
+
+### Latihan
+
+```{r}
+
+```
+
+## Manajemen Data Frame
+
+```{r}
+data(iris) # Data sample bawaaan dari R
+```
+
+```{r}
+head(iris) # 6 baris pertama
+```
+
+```{r}
+tail(iris) # 6 baris terakhir
+```
+
+```{r}
+str(iris)
+```
+
+### Package R
+
+Package R dalam R adalah kumpulan fungsi-fungsi yang telah dibuat oleh pengguna R atau tim pengembang R untuk melakukan tugas-tugas tertentu dalam analisis data dan pemrograman. Setiap paket R berisi sejumlah fungsi dan algoritma yang dapat dipanggil oleh pengguna untuk membantu dalam analisis data dan pemodelan statistik.
+
+Paket R memungkinkan pengguna untuk mengimpor dan menggunakan fungsi-fungsi tertentu tanpa harus menulis ulang kode. Dalam R, terdapat banyak paket yang disediakan secara gratis dan dapat diunduh melalui CRAN (Comprehensive R Archive Network), atau diinstal langsung melalui terminal R dengan menggunakan perintah seperti `install.packages("nama_paket")`.
+
+Setiap paket R memiliki dokumentasi yang menyertai paket tersebut, sehingga pengguna dapat membaca deskripsi fungsi-fungsi dan cara penggunaannya. Selain itu, paket R juga memudahkan pengguna dalam mengembangkan kode mereka sendiri dengan mengimpor fungsi-fungsi dari paket R.
+
+Contohnya: `ggplot2`: Paket ini menyediakan fungsi untuk membuat grafik visualisasi data dengan mudah dan fleksibel.
+
+`dplyr`: Paket ini menyediakan fungsi untuk melakukan manipulasi data seperti pemfilteran, pengelompokan, pengurutan, dan penggabungan data.
+
+`readxl`: Paket ini menyediakan fungsi untuk import file dan export file excel
+
+```{r}
+#install.packages("readxl")
+library(readxl) # Pemanggilan
+
+#install.packages("dplyr")
+library(dplyr)
+```
+
+### Manipulasi data
+
+`dplyr` adalah package yang dapat digunakan untuk memanipulasi data yang dikembangkan oleh Hadley Wickham.
+
+Fungsi-fungsi dalam dplyr yang akan digunakan:
+
+-   `mutate()` : membuat peubah/variabel baru
+
+-   `filter()` : memilih data (baris)
+
+-   `select()` : memilih peubah (kolom)
+
+-   `arrange()` : mengurutkan data
+
+-   `summarise()` : membuat ringkasan data
+
+-   `group_by()` : mendefinisikan grup dalam data
+
+### Membuat peubah baru
+
+```{r}
+iris
+```
+
+```{r}
+irisbaru  <- mutate(iris, sepal2 = Sepal.Length + Sepal.Width)
+```
+
+```{r}
+head(irisbaru)
+```
+
+### Filter Data
+
+```{r}
+irisetosa <- filter(iris, Species=="setosa")
+
+irisetosa
+```
+
+```{r}
+levels(iris$Species)
+```
+
+```{r}
+irisversicolor <- filter(iris, Species=="setosa"& Petal.Length==1.3)
+head(irisversicolor)
+# | - atau
+# != - Selain
+```
+
+### Memilih peubah atau kolom tertentu
+
+```{r}
+#Memilih peubah provinsi dan nilai total
+iris3 <- select(iris, Sepal.Length, Species)
+head(iris3)
+```
+
+### Sorting Data
+
+```{r}
+iris4 <- arrange(iris, Petal.Width)
+head(iris4)
+```
+
+```{r}
+iris4 <- arrange(iris, Species, desc(Petal.Width))
+head(iris4)
+```
+
+### Tambahan
+
+```{r}
+# Mengubah nama variabel
+names(iris4)[1] <- "length" 
+head(iris4)
+```
+
+```{r}
+# Menghapus variabel
+head(iris4[,c(-1,-3)])
+```
+
+```{r}
+# Penggunaan group_by dan summarise
+iris %>% group_by(Species) %>% summarise(rata2_Sepal.Width = mean(Sepal.Width))
+```
+
+### Latihan
+
+```{r}
+# Gunakan data iris
+# Buat peubah baru dengan nama sepal100 yang merupakan data Sepal.Length dikali 100. Jadikan tabel baru beri nama irislatihan1
+
+# Tampilkan 6 baris pertama
+```
+
+```{r}
+# Filter data iris berdasarkan spesies setosa dan virginica. Buat jadi tabel baru beri nama irislatihan2
+
+# Tampilkan 6 baris terakhir
+
+```
+
+```{r}
+# Gunakan group_by berdasarkan Species dan summarise Sepal.Width masing2 species dengan ukuran max, min, dan standardeviasi (sd)
+
+```
+
+## Visulisasi Sederhana
+
+### Histogram
+
+```{r}
+hist(iris$Sepal.Length)
+```
+
+```{r}
+#Melihat cara pemakaian fungsi:
+#?hist
+```
+
+### Box Plot
+
+```{r}
+boxplot(iris$Sepal.Length)
+```
+
+### Barplot
+
+```{r}
+table(iris$Species)
+```
+
+```{r}
+barplot(table(iris$Species))
+```
+
+### Pie Chart
+
+```{r}
+pie(table(iris$Species))
+```
+
+### Scatter Plot
+
+```{r}
+plot(iris$Sepal.Length,iris$Sepal.Width)
+```
+
+```{r}
+plot(iris$Sepal.Length, iris$Sepal.Width, main = "Sepal Length vs. Sepal Width", 
+     xlab = "Sepal Length", ylab = "Sepal Width", col = "red")
+```
+
+Eksplorasi argumen pada jenis-jenis plot dengan menggunakan help pada R \~`?`
+
+### Latihan
+
+```{r}
+# Berikan argumen pada Histogram dan Box Plot seperti memberi judul dan warna.
+# Bebas tidak ada ketentuan
+
+```
+
+## Analisis Statistika Sederhana
+
+### Import Data
+
+```{r}
+#CSV
+datasekolah <- read.csv("sekolah.csv")
+head(datasekolah)
+```
+
+```{r}
+#Excel
+library(readxl)
+datapersepsi <- read_excel("persepsi.xlsx", sheet = "Sheet1")
+head(datapersepsi)
+```
+
+### Deskiptif dan Korelasi
+
+```{r}
+summary(datapersepsi)
+```
+
+```{r}
+datapersepsi$jk <- factor(datapersepsi$jk)
+datapersepsi$edu <- factor(datapersepsi$edu)
+```
+
+```{r}
+summary(datapersepsi)
+```
+
+```{r}
+# Korelasi
+cor(datapersepsi$x2, datapersepsi$x1)
+```
+
+### Avova
+
+```{r}
+anova <- aov(y ~ jk, data = datapersepsi)
+summary(anova)
+```
+
+### Regresi Linier
+
+```{r}
+regresi <- lm(y ~ x1 + x2 + jk + edu, data = datapersepsi) #OLS
+summary(regresi)
+```
+
+```{r}
+library(lmtest)
+bptest(regresi) # Uji Heteroskedastisitas
+```
+
+```{r}
+bgtest(regresi) # Uji Autokorelasi
+```
+
+```{r}
+shapiro.test(regresi$residuals) # Uji Normalitas
+nortest::ad.test(regresi$residuals)
+```
+
+```{r}
+#install.packages("car")
+library(car) # Multikolinearitas
+vif(regresi)
+```
+
+```{r}
+library(sandwich)
+coeftest(regresi, vcov = vcovHAC(regresi)) # Robust Standard Error
+```
+
+### Latihan
+
+```{r}
+# Lakukan analisis regresi linier dan pengujiannya pada data `datasekolah`
+# Model: nilai_siswa sebagai Y dan X adalah nilai_guru dan pulau
+```
